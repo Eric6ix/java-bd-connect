@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="500.0" minWidth="788.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packageController.ControllerMain">
+   <children>
+      <Button fx:id="btnButtonVendedor" cache="true" layoutX="372.0" layoutY="99.0" mnemonicParsing="false" onAction="#btButtonVendedor" prefHeight="111.0" prefWidth="99.0" text="Vendedor" textAlignment="CENTER" />
+      <Button fx:id="btnButtonCliente" cache="true" layoutX="522.0" layoutY="99.0" mnemonicParsing="false" onAction="#btButtonCliente" prefHeight="111.0" prefWidth="99.0" text="Cliente" textAlignment="CENTER" />
+      <Button fx:id="btnButtonProduto" cache="true" layoutX="372.0" layoutY="319.0" mnemonicParsing="false" onAction="#btButtonProduto" prefHeight="111.0" prefWidth="99.0" text="Produto" textAlignment="CENTER" />
+      <Button fx:id="btnButtonFornecedor" cache="true" layoutX="522.0" layoutY="319.0" mnemonicParsing="false" onAction="#btButtonFornecedor" prefHeight="111.0" prefWidth="99.0" text="Fornecedor" textAlignment="CENTER" />
+      <Button fx:id="btnButtonRelatorio" cache="true" layoutX="90.0" layoutY="375.0" mnemonicParsing="false" onAction="#btButtonRelatoio" prefHeight="51.0" prefWidth="157.0" text="Relatoro de venda" textAlignment="CENTER" />
+      <Button cache="true" layoutX="692.0" layoutY="427.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="59.0" text="Sair       " textAlignment="CENTER" />
+      <Button fx:id="btnButtonRegistrarVenda" cache="true" layoutX="105.0" layoutY="119.0" mnemonicParsing="false" onAction="#btButtonRegistrarVenda" prefHeight="184.0" prefWidth="127.0" text="Registrar vanda" textAlignment="CENTER" />
+      <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="731.0" layoutY="444.0">
+         <image>
+            <Image url="@../packagePNG/exit-2860.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="49.0" layoutX="144.0" layoutY="234.0">
+         <image>
+            <Image url="@../packagePNG/sale.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="88.0" layoutY="384.0">
+         <image>
+            <Image url="@../packagePNG/report.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="402.0" layoutY="104.0">
+         <image>
+            <Image url="@../packagePNG/seller.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="552.0" layoutY="319.0">
+         <image>
+            <Image url="@../packagePNG/supplier.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="552.0" layoutY="99.0">
+         <image>
+            <Image url="@../packagePNG/client.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="402.0" layoutY="319.0">
+         <image>
+            <Image url="@../packagePNG/package-replacement-icon.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
