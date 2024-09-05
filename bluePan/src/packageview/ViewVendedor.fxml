@@ -19,8 +19,8 @@
             <TableColumn fx:id="columnTELEFONE" prefWidth="75.0" text="Telefone" />
             <TableColumn fx:id="columnNASCIMENRO" prefWidth="75.0" text="Nascimento" />
             <TableColumn fx:id="columnCONTRADACAO" prefWidth="75.0" text="Contratação" />
-            <TableColumn fx:id="columnENDERECO" prefWidth="75.0" text="Endereço" />
             <TableColumn fx:id="columnVENDIDOS" prefWidth="75.0" text="Vendidos" />
+            <TableColumn fx:id="columnENDERECO" prefWidth="75.0" text="Endereço" />
         </columns>
       </TableView>
       <Button fx:id="btnExcluir" layoutX="670.0" layoutY="64.0" mnemonicParsing="false" text="Excluir" />

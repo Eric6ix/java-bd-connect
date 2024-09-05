@@ -6,7 +6,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
 import javafx.stage.Stage;
 
 
@@ -43,8 +42,8 @@ public class Main extends Application {
 			
 			primaryStage.setScene(login);
 			primaryStage.show();
-/*
-			BorderPane root = new BorderPane();
+
+		/*	BorderPane root = new BorderPane();
 			Scene scene = new Scene(root, 400, 400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
@@ -139,8 +138,8 @@ public class Main extends Application {
 		// =================================================
 
 		// verificar uma linha de uma tabela manualmente
-/*
-		VendedorDAO c = new VendedorDAO();
+
+	/*	VendedorDAO c = new VendedorDAO();
 
 		ArrayList<Vendedor> vendedor = new ArrayList<>(); // só é ultilizado com o read"metodo"
 		vendedor = c.read();
@@ -163,22 +162,22 @@ public class Main extends Application {
 
 		Vendedor cl = new Vendedor();
 		cl.setNome("Ronaldo");
-		cl.setCPF("126543459"); // quando é coluna de tipo unico repete o update no final || e também para
+		cl.setCPF("126545549"); // quando é coluna de tipo unico repete o update no final || e também para
 								// identificar a coluna ãncora
-		cl.setEmail("nopeonamao@teste.com");
+		cl.setEmail("xuxa@teste.com");
 		cl.setTelefone("639976545-6765"); // quando fizer o update, tem que dar outro select no banco para atualizar|
 		cl.setData_nasc("1970-04-21");
 		cl.setData_cont("2024-05-09");
 		cl.setTotal_vend("2024");
-		cl.setEndereco("Rua xTudo, numero 363");
-		c.create(cl);
+		cl.setEndereco("Rua biçola, numero 363");
+		c.create(cl);*/
 
 		// update manual:
 
 		// para poder usar update é obrigatório usar o cpf para a máquina saber o ID
 		// certo
 
-		Vendedor cl = new Vendedor();
+		/*Vendedor cl = new Vendedor();
 		cl.setNome("Rogerio");
 		cl.setCPF("126543459");
 		cl.setEmail("teste@gmail");
@@ -190,7 +189,7 @@ public class Main extends Application {
 		c.update(cl);
 
 		/// delete manual:
-		// c.delete("458483455");*/
+		// c.delete("458483455");
 		
 		
 		
