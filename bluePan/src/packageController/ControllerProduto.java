@@ -1,9 +1,11 @@
 package packageController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,13 +19,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
-import packageControler.ClienteDAO;
 import packageControler.ProdutoDAO;
-import packageModel.Cliente;
 import packageModel.Produto;
 
 public class ControllerProduto implements Initializable{
 
+
+
+    @FXML
+    private Button btnCadastrar;
 	
 	@FXML
     private TableView<Produto> TableProduto;
@@ -60,6 +64,10 @@ public class ControllerProduto implements Initializable{
 
     @FXML
     private Button btnVoltra;
+    
+    @FXML
+    private Button btnEdidtar;
+
 
     @FXML
     private TableColumn<Produto, String> columnCODIGO;
@@ -91,7 +99,7 @@ public class ControllerProduto implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+		CarregarTableProduto();
 	}
    
 
@@ -110,7 +118,7 @@ public class ControllerProduto implements Initializable{
 	
 	
 	@FXML
-	public void btnDeletarCliente(ActionEvent event) {
+	public void btnDeletar(ActionEvent event) {
 		int i = TableProduto.getSelectionModel().getSelectedIndex();
 		if(i == -1) {
 			Alert menssagemDeErro = new Alert(Alert.AlertType.INFORMATION);
@@ -123,7 +131,7 @@ public class ControllerProduto implements Initializable{
 			
 			Alert menssagemDeAviso = new Alert(Alert.AlertType.CONFIRMATION);
 			menssagemDeAviso = new Alert(Alert.AlertType.CONFIRMATION);
-			menssagemDeAviso.setContentText("Deseja realmente excluir o cliente: "+ produto.getNome());
+			menssagemDeAviso.setContentText("Deseja realmente excluir o produto: "+ produto.getNome());
 			
 			Optional<ButtonType> resultado = menssagemDeAviso.showAndWait();
 			
@@ -153,6 +161,25 @@ public class ControllerProduto implements Initializable{
 			
 		
 	}
-    
+	@FXML
+	void btnCadastrarACTIOn(ActionEvent event) throws IOException{    
+		
+		produtoEdtar = null;
+		Main.TelaCadastroProd();
+	}
+	
+	public static Produto produtoEdtar = new Produto();
+	@FXML
+    void btnEditarACTIOn(ActionEvent event) throws IOException {
+		if(TableProduto.getSelectionModel().getSelectedIndex() == -1) { 
+			Alert menssagemDeErro = new Alert(Alert.AlertType.INFORMATION);
+			menssagemDeErro.setContentText("Selecione um Produto para editat primeiro!");
+			menssagemDeErro.show();
+		}else {
+			int i = TableProduto.getSelectionModel().getSelectedIndex();
+			produtoEdtar = TableProduto.getItems().get(i);
+			Main.TelaCadastroProd();
+		}
+    }
 
 }

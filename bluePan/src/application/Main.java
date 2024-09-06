@@ -2,10 +2,13 @@ package application;
 
 
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
@@ -16,6 +19,7 @@ public class Main extends Application {
 	private static Scene vendedor;
 	private static Scene cliente;
 	private static Scene fornecedor;
+	private static Scene produto;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -30,6 +34,9 @@ public class Main extends Application {
 
 			Parent fxmlMain = FXMLLoader.load(getClass().getResource("/packageview/ViewMain.fxml"));
 			main = new Scene(fxmlMain);
+
+			Parent fxmlProduto = FXMLLoader.load(getClass().getResource("/packageview/ViewProduto.fxml"));
+			produto = new Scene(fxmlProduto);
 			
 			Parent fxmlFornecedor = FXMLLoader.load(getClass().getResource("/packageview/ViewFornecedor.fxml"));
 			fornecedor = new Scene(fxmlFornecedor );
@@ -57,16 +64,36 @@ public class Main extends Application {
 	public static void changeScreen(String tela) {
 		if (tela.equals("login")) {
 			stage.setScene(login);
-		}else if (tela.equals("main")) {
+			}else if (tela.equals("main")) {
 			stage.setScene(main);
 			}else if(tela.equals("vendedor")) {
 				stage.setScene(vendedor);
 			}else if(tela.equals("fornecedor")) {
 				stage.setScene(fornecedor);
+			}else if(tela.equals("produto")) {
+				stage.setScene(produto);
 			}else if(tela.equals("cliente")) {
 				stage.setScene(cliente);
 			}
 		}
+	
+	
+	
+	private static Stage cadProduto;
+	
+	public static void TelaCadastroProd() throws IOException{
+		FXMLLoader ProdutoCadastro = new FXMLLoader();
+		ProdutoCadastro.setLocation(Main.class.getResource("/packageview/ViewCadastrarProduto.fxml"));
+		Parent cadastroProd = ProdutoCadastro.load();
+		Scene scene2 = new Scene(cadastroProd);
+		
+				cadProduto = new Stage();
+				cadProduto.setTitle("Cadastro de Produto - BLUE PAN");
+				cadProduto.initModality(Modality.WINDOW_MODAL);
+				cadProduto.setScene(scene2);
+				cadProduto.centerOnScreen();
+				cadProduto.showAndWait();
+	}
 
 	
 	public static void main(String[] args) {

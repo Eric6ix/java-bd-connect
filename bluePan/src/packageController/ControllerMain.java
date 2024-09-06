@@ -30,7 +30,7 @@ public class ControllerMain {
 
     @FXML
     void btButtonProduto(ActionEvent event) {
-
+    	Main.changeScreen("produto");
     }
 
     @FXML

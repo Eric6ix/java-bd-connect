@@ -31,6 +31,7 @@ public class ProdutoDAO {
 					c.setPreco_un(rs.getString(5));
 					c.setData_fab(rs.getString(6));
 					c.setData_val(rs.getString(7));
+					c.setTipo_un(rs.getString(8));
 
 					produto.add(c);
 				}
@@ -51,13 +52,14 @@ public class ProdutoDAO {
 
 			try {
 
-				stmt = con.prepareStatement("INSERT INTO produto VALUES(?,?,?,?,?,?)");
+				stmt = con.prepareStatement("INSERT INTO produto VALUES(?,?,?,?,?,?,?)");
 				stmt.setString(1, c.getCodigo());
 				stmt.setString(2, c.getNome());
 				stmt.setString(3, c.getEstoque());
 				stmt.setString(4, c.getPreco_un());
 				stmt.setString(5, c.getData_fab());
 				stmt.setString(6, c.getData_val());
+				stmt.setString(7, c.getTipo_un());
 
 				stmt.executeUpdate();
 

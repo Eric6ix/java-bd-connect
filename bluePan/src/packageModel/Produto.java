@@ -9,8 +9,16 @@ public class Produto {
 	private String Preco_un;
 	private String Data_fab;
 	private String Data_val;
+	private String Tipo_un;
+	
 	public Produto() {
 		super();
+	}
+	public String getTipo_un() {
+		return Tipo_un;
+	}
+	public void setTipo_un(String tipo_un) {
+		this.Tipo_un = tipo_un;
 	}
 	public Produto(String id_produto, String codigo, String nome, String estoque, String preco_un, String data_fab,
 			String data_val) {
