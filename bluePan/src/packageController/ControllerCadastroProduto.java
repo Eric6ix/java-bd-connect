@@ -1,4 +1,5 @@
 package packageController;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,83 +17,98 @@ import packageModel.Produto;
 
 public class ControllerCadastroProduto implements Initializable {
 
-    @FXML
-    private Button btnCancelar;
+	@FXML
+	private Button btnCancelar;
 
-    @FXML
-    private Button btnSalvar;
+	@FXML
+	private Button btnSalvar;
 
-    @FXML
-    private DatePicker datePCompra;
+	@FXML
+	private DatePicker txtDataFab;
 
-    @FXML
-    private DatePicker datePNascimento;
+	@FXML
+	private DatePicker txtDataVal;
 
-    @FXML
-    private Text txt;
+	@FXML
+	private Text txt;
 
-    @FXML
-    private TextField txtfCodigo;
+	@FXML
+	private TextField txtCodigo;
 
-    @FXML
-    private Text txtfEstoque;
+	@FXML
+	private TextField txtEstoque;
 
-    @FXML
-    private TextField txtfFone;
+	@FXML
+	private TextField txtFornecedor;
 
-    @FXML
-    private ChoiceBox<?> txtfFornecedor;
+	@FXML
+	private TextField txtNome;
 
-    @FXML
-    private TextField txtfNome;
+	@FXML
+	private TextField txtPrecoUn;
 
-    @FXML
-    private TextField txtfPrecoUn;
+	@FXML
+	private TextField txtTipoUn;
 
-    @FXML
-    private TextField txtfTipoUn;
-    
-    void btnCadastrarProduto(ActionEvent event) {
-    	Produto produto = new Produto();
-    	produto.setNome(txtfNome.getText());
-    	produto.setCodigo(txtfCodigo.getText());
-    	produto.setPreco_un(txtfPrecoUn.getText());
-    	produto.setNome(datePCompra.getValue().toString());
-    	produto.setNome(datePNascimento.getValue().toString());
-    	produto.setNome(txtfTipoUn.getText());
-    ProdutoDAO prod = new ProdutoDAO();
-    prod.create(produto);
-    ControllerProduto.Carregar
-    }
-    
-    
-    void btnDeletarProduto(ActionEvent event) {
-    	txtfNome.setText("");
-		txtfCodigo.setText("");
+	@FXML
+	private Text txtfEstoque;
+
+	@FXML
+	void btnDeletarProduto(ActionEvent event) {
+		txtNome.setText("");
+		txtCodigo.setText("");
 		txtfEstoque.setText("");
-		txtfPrecoUn.setText("");
-		txtfTipoUn.setText("");
-		datePCompra.setValue(null);
-		datePNascimento.setValue(null);
-		ControllerProduto.produtoEdtar = null;
-		
+		txtPrecoUn.setText("");
+		txtTipoUn.setText("");
+		txtDataFab.setValue(null);
+		txtDataVal.setValue(null);
+		ControllerProduto.produtoEditar = null;
+
 		Stage stage = (Stage) btnCancelar.getScene().getWindow();
 		stage.close();
-    }
-    
-    
+	}
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
-		
-		if(ControllerProduto.produtoEdtar!=null) {
-			txtfNome.setText(ControllerProduto.produtoEdtar.getNome());
-			txtfCodigo.setText(ControllerProduto.produtoEdtar.getCodigo());
-			txtfEstoque.setText(ControllerProduto.produtoEdtar.getEstoque());
-			txtfPrecoUn.setText(ControllerProduto.produtoEdtar.getPreco_un());
-			txtfTipoUn.setText(ControllerProduto.produtoEdtar.getTipo_un());
+
+		if (ControllerProduto.produtoEditar != null) {
+			txtNome.setText(ControllerProduto.produtoEditar.getNome());
+			txtCodigo.setText(ControllerProduto.produtoEditar.getCodigo());
+			txtEstoque.setText(ControllerProduto.produtoEditar.getEstoque());
+			txtPrecoUn.setText(ControllerProduto.produtoEditar.getPreco_un());
+			txtTipoUn.setText(ControllerProduto.produtoEditar.getTipo_un());
 		}
 	}
 
+	@FXML
+	void btnCadastrarProduto(ActionEvent event) {
+		if (ControllerProduto.produtoEditar == null) {
+			Produto produto = new Produto();
+			produto.setNome(txtNome.getText());
+			produto.setCodigo(txtCodigo.getText());
+			produto.setTipo_un(txtTipoUn.getText());
+			produto.setData_fab(txtDataFab.getValue().toString());
+			produto.setData_val(txtDataVal.getValue().toString());
+			produto.setPreco_un(txtPrecoUn.getText());
+			produto.setEstoque(txtEstoque.getText());
+			ProdutoDAO prod = new ProdutoDAO();
+			prod.create(produto);
+			Stage stage = (Stage) btnCancelar.getScene().getWindow();
+			stage.close();
+		} else {
+			Produto produto = new Produto();
+			produto.setNome(txtNome.getText());
+			produto.setCodigo(txtCodigo.getText());
+			produto.setTipo_un(txtTipoUn.getText());
+			produto.setData_fab(txtDataFab.getValue().toString());
+			produto.setData_val(txtDataVal.getValue().toString());
+			produto.setPreco_un(txtPrecoUn.getText());
+			produto.setEstoque(txtEstoque.getText());
+			ProdutoDAO prod = new ProdutoDAO();
+			prod.update(produto);
+			Stage stage = (Stage) btnCancelar.getScene().getWindow();
+			stage.close();
+		}
+	}
 }

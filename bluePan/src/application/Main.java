@@ -94,6 +94,22 @@ public class Main extends Application {
 				cadProduto.centerOnScreen();
 				cadProduto.showAndWait();
 	}
+	
+	private static Stage cadCliente;
+	
+	public static void TelaCadastroCliente() throws IOException{
+		FXMLLoader ClienteCadastro = new FXMLLoader();
+		ClienteCadastro.setLocation(Main.class.getResource("/packageview/ViewCadastrarCliente.fxml"));
+		Parent cadastroClien = ClienteCadastro.load();
+		Scene scene2 = new Scene(cadastroClien);
+		
+				cadCliente = new Stage();
+				cadCliente.setTitle("Cadastro de Cliente - BLUE PAN");
+				cadCliente.initModality(Modality.WINDOW_MODAL);
+				cadCliente.setScene(scene2);
+				cadCliente.centerOnScreen();
+				cadCliente.showAndWait();
+	}
 
 	
 	public static void main(String[] args) {

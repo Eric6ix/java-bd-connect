@@ -25,6 +25,7 @@ import packageModel.Fornecedor;
 
 public class ControllerFornecedor implements Initializable{
 
+
     @FXML
     private TableView<Fornecedor> TableFornecedor;
 
@@ -60,12 +61,12 @@ public class ControllerFornecedor implements Initializable{
 
     @FXML
     private TableColumn<Fornecedor, String> columnCNPJ;
-    
-    @FXML
-    private TableColumn<Fornecedor, String> columnENDERECO;
 
     @FXML
     private TableColumn<Fornecedor, String> columnEMAIL;
+
+    @FXML
+    private TableColumn<Fornecedor, String> columnENDERECO;
 
     @FXML
     private TableColumn<Fornecedor, String> columnID;
@@ -79,8 +80,6 @@ public class ControllerFornecedor implements Initializable{
     @FXML
     private TableColumn<Fornecedor, String> columnTIPJURID;
 
-    @FXML
-    private TableColumn<Fornecedor, String> columnTIPOUNITARIO;
 
     @FXML
     private Text txtFornecedor;
@@ -103,7 +102,6 @@ public class ControllerFornecedor implements Initializable{
 		columnEMAIL.setCellValueFactory(new PropertyValueFactory<>("Email"));
 		columnTELEFONE.setCellValueFactory(new PropertyValueFactory<>("TElefone"));
 		columnENDERECO.setCellValueFactory(new PropertyValueFactory<>("Endereco"));
-		columnTIPOUNITARIO.setCellValueFactory(new PropertyValueFactory<>("tipo_un"));
 		columnTIPJURID.setCellValueFactory(new PropertyValueFactory<>("TipoJur"));
 		TableFornecedor.setItems(ArrayFornecedor);
     }

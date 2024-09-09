@@ -162,24 +162,27 @@ public class ControllerProduto implements Initializable{
 		
 	}
 	@FXML
-	void btnCadastrarACTIOn(ActionEvent event) throws IOException{    
+	void btnCadastrarACTION(ActionEvent event) throws IOException{    
 		
-		produtoEdtar = null;
+		produtoEditar = null;
 		Main.TelaCadastroProd();
 	}
 	
-	public static Produto produtoEdtar = new Produto();
+	public static Produto produtoEditar = new Produto();
+	
 	@FXML
-    void btnEditarACTIOn(ActionEvent event) throws IOException {
+	void btnEditarACTION(ActionEvent event) throws IOException {
 		if(TableProduto.getSelectionModel().getSelectedIndex() == -1) { 
 			Alert menssagemDeErro = new Alert(Alert.AlertType.INFORMATION);
 			menssagemDeErro.setContentText("Selecione um Produto para editat primeiro!");
 			menssagemDeErro.show();
 		}else {
 			int i = TableProduto.getSelectionModel().getSelectedIndex();
-			produtoEdtar = TableProduto.getItems().get(i);
+			produtoEditar = TableProduto.getItems().get(i);
 			Main.TelaCadastroProd();
 		}
     }
-
+	
+	
 }
+

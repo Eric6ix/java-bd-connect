@@ -1,10 +1,12 @@
 package packageController;
 
+import java.io.IOException;
 import java.net.URL;
 
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import packageControler.ClienteDAO;
 import packageModel.Cliente;
+import packageModel.Produto;
 
 public class ControlleCliente implements Initializable{
 
@@ -112,7 +115,7 @@ public class ControlleCliente implements Initializable{
 	}
 	
 	@FXML
-	public void btnDeletarCliente(ActionEvent event) {
+	public void btnDeletar(ActionEvent event) {
 		int i = TableCliente.getSelectionModel().getSelectedIndex();
 		if(i == -1) {
 			Alert menssagemDeErro = new Alert(Alert.AlertType.INFORMATION);
@@ -157,4 +160,26 @@ public class ControlleCliente implements Initializable{
 			
 		
 	}
+	
+	@FXML
+	void btnCadastrarACTION(ActionEvent event) throws IOException{    
+		
+		clienteEditar = null;
+		Main.TelaCadastroCliente();
+	}
+	
+	public static Cliente clienteEditar = new Cliente();
+	
+	@FXML
+	void btnEditarACTION(ActionEvent event) throws IOException {
+		if(TableCliente.getSelectionModel().getSelectedIndex() == -1) { 
+			Alert menssagemDeErro = new Alert(Alert.AlertType.INFORMATION);
+			menssagemDeErro.setContentText("Selecione um Cliente para editat primeiro!");
+			menssagemDeErro.show();
+		}else {
+			int i = TableCliente.getSelectionModel().getSelectedIndex();
+			clienteEditar = TableCliente.getItems().get(i);
+			Main.TelaCadastroCliente();
+		}
+    }
 }

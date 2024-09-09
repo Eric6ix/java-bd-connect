@@ -21,7 +21,7 @@
             <TableColumn fx:id="columnDATAVAL" prefWidth="75.0" text="Data de Val." />
          </columns>
       </TableView>
-      <Button fx:id="btnExcluir" layoutX="682.0" layoutY="60.0" mnemonicParsing="false" onAction="#btnDeletar" text="Excluir" />
+      <Button fx:id="btnExcluir" layoutX="659.0" layoutY="60.0" mnemonicParsing="false" onAction="#btnDeletar" text="Excluir" />
       <TextField fx:id="TxtFieldPsquisar" layoutX="228.0" layoutY="60.0" prefHeight="26.0" prefWidth="425.0" />
       <Button fx:id="btnPesquisar" layoutX="132.0" layoutY="60.0" mnemonicParsing="false" onAction="#btnPesquisarAction" text="Pesquisar" />
       <Button fx:id="btnVoltra" layoutX="53.0" layoutY="489.0" mnemonicParsing="false" text="Voltar" />
@@ -36,8 +36,7 @@
       <Button fx:id="btnFornecedor" layoutX="52.0" layoutY="223.0" mnemonicParsing="false" text="Fornecedor" />
       <Button fx:id="btnProduto" layoutX="62.0" layoutY="254.0" mnemonicParsing="false" text="Produto" />
       <Button fx:id="btnVendedor" layoutX="58.0" layoutY="285.0" mnemonicParsing="false" text="Vendedor" />
-      <Button fx:id="btnCadastrar" layoutX="762.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnCadastrarACTIOn" text="Cadastrar" />
-      <Button fx:id="btnEdidtar" layoutX="762.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnEditarACTIOn" text="Editat" />
-      <Button fx:id="btnEdidtar1" layoutX="762.0" layoutY="210.0" mnemonicParsing="false" onAction="#btnEditarACTIOn" text="Editat" />
+      <Button fx:id="btnCadastrar" layoutX="713.0" layoutY="60.0" mnemonicParsing="false" onAction="#btnCadastrarACTION" text="Cadastrar" />
+      <Button fx:id="btnEdidtar" layoutX="783.0" layoutY="60.0" mnemonicParsing="false" onAction="#btnEditarACTION" text="Editat" />
    </children>
 </AnchorPane>

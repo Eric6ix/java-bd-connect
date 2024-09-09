@@ -10,16 +10,15 @@
 
 <AnchorPane minHeight="375.0" minWidth="400.0" prefHeight="559.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packageController.ControllerFornecedor">
    <children>
-      <TableView fx:id="TableFornecedor" layoutX="169.0" layoutY="130.0" prefHeight="415.0" prefWidth="605.0">
+      <TableView fx:id="TableFornecedor" layoutX="169.0" layoutY="131.0" prefHeight="390.0" prefWidth="583.0">
          <columns>
             <TableColumn fx:id="columnID" prefWidth="75.0" text="id" />
             <TableColumn fx:id="columnNOME" prefWidth="75.0" text="nome" />
             <TableColumn fx:id="columnCNPJ" prefWidth="75.0" text="CNPJ" />
             <TableColumn fx:id="columnEMAIL" prefWidth="75.0" text="Email" />
             <TableColumn fx:id="columnTELEFONE" prefWidth="75.0" text="Telefone" />
-            <TableColumn fx:id="columnTIPOUNITARIO" prefWidth="75.0" text="Endereço" />
-            <TableColumn fx:id="columnTIPJURID" prefWidth="75.0" text="Tipo Jurídico" />
-            <TableColumn fx:id="columnENDERECO" prefWidth="75.0" text="Tipo unitário" />
+            <TableColumn fx:id="columnTIPJURID" prefWidth="52.7999267578125" text="Tipo Jurídico" />
+            <TableColumn fx:id="columnENDERECO" prefWidth="125.60009765625" text="Endereço" />
          </columns>
       </TableView>
       <Button fx:id="btnExcluir" layoutX="663.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnDeletarFornecedor" text="Excluir" />

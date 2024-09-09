@@ -23,7 +23,7 @@
             <TableColumn fx:id="columnTipJuri" prefWidth="75.0" text="Tipo Jurídico" />
          </columns>
       </TableView>
-      <Button fx:id="btnExcluir" layoutX="653.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnDeletarCliente" text="Excluir" />
+      <Button fx:id="btnExcluir" layoutX="653.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnDeletar" text="Excluir" />
       <TextField fx:id="TxtFieldPsquisar" layoutX="199.0" layoutY="82.0" prefHeight="26.0" prefWidth="425.0" />
       <Button fx:id="btnPesquisar" layoutX="103.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnPesquisarAction" text="Pesquisar" />
       <Button fx:id="btnVoltra" layoutX="24.0" layoutY="511.0" mnemonicParsing="false" text="Voltar" />
@@ -38,5 +38,7 @@
       <Button fx:id="btnFornecedor" layoutX="23.0" layoutY="245.0" mnemonicParsing="false" text="Fornecedor" />
       <Button fx:id="btnProduto" layoutX="33.0" layoutY="276.0" mnemonicParsing="false" text="Produto" />
       <Button fx:id="btnVendedor" layoutX="29.0" layoutY="307.0" mnemonicParsing="false" text="Vendedor" />
+      <Button fx:id="btnCadastrar" layoutX="709.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnCadastrar" text="Cadastrar" />
+      <Button fx:id="btnEdidtar" layoutX="779.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnEditarACTION" text="Editat" />
    </children>
 </AnchorPane>

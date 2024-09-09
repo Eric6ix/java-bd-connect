@@ -28,9 +28,8 @@ public class FornecedorDAO {
 				c.setCNPJ(rs.getString(3));
 				c.setEmail(rs.getString(4)); // select manual
 				c.setTElefone(rs.getString(5));
-				c.setTipo_un(rs.getString(6));
+				c.setEndereco(rs.getString(6));
 				c.setTipoJur(rs.getString(7));
-				c.setEndereco(rs.getString(8));
 
 				fornecedor.add(c);
 			}
@@ -51,14 +50,13 @@ public class FornecedorDAO {
 
 		try {
 
-			stmt = con.prepareStatement("INSERT INTO fornecedor VALUES(?,?,?,?,?,?,?)");
+			stmt = con.prepareStatement("INSERT INTO fornecedor VALUES(?,?,?,?,?,?)");
 			stmt.setString(1, c.getNome());
 			stmt.setString(2, c.getCNPJ());
 			stmt.setString(3, c.getEmail());
 			stmt.setString(4, c.getTElefone());
 			stmt.setString(5, c.getEndereco());
-			stmt.setString(6, c.getTipo_un());
-			stmt.setString(7, c.getTipoJur());
+			stmt.setString(6, c.getTipoJur());
 
 			stmt.executeUpdate();
 
@@ -76,15 +74,15 @@ public class FornecedorDAO {
 
 		try {
 
-			stmt = con.prepareStatement("UPDATE fornecedor SET nome = ?, CNPJ = ?, email = ?, telefone =?, endereco = ?, tipo_un = ?, tipo_juridico = ? WHERE CNPJ = ?");
+			stmt = con.prepareStatement("UPDATE fornecedor SET nome = ?, CNPJ = ?, email = ?, telefone =?, endereco = ?, tipo_juridico = ? WHERE CNPJ = ?");
 			stmt.setString(1, cl.getNome());
 			stmt.setString(2, cl.getCNPJ());
 			stmt.setString(3, cl.getEmail());
 			stmt.setString(4, cl.getTElefone());
-			stmt.setString(5, cl.getEndreco());
-			stmt.setString(6, cl.getTipo_un());
-			stmt.setString(7, cl.getTipoJur());
-			stmt.setString(8, cl.getCNPJ());
+			stmt.setString(5, cl.getEndereco());
+			stmt.setString(6, cl.getTipoJur());
+			stmt.setString(7, cl.getCNPJ());
+			
 
 			stmt.executeUpdate();
 
