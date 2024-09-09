@@ -1,0 +1,127 @@
+USE [teste]
+GO
+/****** Object:  Table [dbo].[cliente]    Script Date: 09/09/2024 15:46:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[cliente](
+	[id_cliente] [int] IDENTITY(1000,135) NOT NULL,
+	[nome] [varchar](50) NOT NULL,
+	[CPF_CNPJ] [varchar](20) NOT NULL,
+	[email] [varchar](50) NOT NULL,
+	[telefone] [varchar](50) NOT NULL,
+	[data_nasc] [date] NOT NULL,
+	[data_primComp] [date] NOT NULL,
+	[endereco] [varchar](150) NOT NULL,
+	[tipo_juridico] [varchar](2) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id_cliente] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[CPF_CNPJ] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[compra]    Script Date: 09/09/2024 15:46:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[compra](
+	[id_compra] [int] IDENTITY(100,12) NOT NULL,
+	[id_cliente] [int] NOT NULL,
+	[id_vendedor] [int] NOT NULL,
+	[id_produto] [int] NOT NULL,
+	[quantidade] [int] NOT NULL,
+	[preco_total] [money] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id_compra] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[fornecedor]    Script Date: 09/09/2024 15:46:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[fornecedor](
+	[id_fornecedor] [int] IDENTITY(1000,335) NOT NULL,
+	[nome] [varchar](50) NOT NULL,
+	[CNPJ] [varchar](14) NOT NULL,
+	[email] [varchar](50) NOT NULL,
+	[telefone] [varchar](50) NOT NULL,
+	[endereco] [varchar](150) NOT NULL,
+	[tipo_juridico] [varchar](44) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id_fornecedor] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[CNPJ] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[produto]    Script Date: 09/09/2024 15:46:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[produto](
+	[id_produto] [int] IDENTITY(100,12) NOT NULL,
+	[codigo] [varchar](50) NOT NULL,
+	[nome] [varchar](50) NOT NULL,
+	[estoque] [int] NOT NULL,
+	[preco_un] [money] NOT NULL,
+	[data_fab] [date] NULL,
+	[data_val] [date] NULL,
+	[tipo_un] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id_produto] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[codigo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[vendedor]    Script Date: 09/09/2024 15:46:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[vendedor](
+	[id_vendedor] [int] IDENTITY(1000,135) NOT NULL,
+	[nome] [varchar](50) NOT NULL,
+	[CPF] [varchar](11) NOT NULL,
+	[email] [varchar](50) NOT NULL,
+	[telefone] [varchar](50) NOT NULL,
+	[data_nasc] [date] NOT NULL,
+	[data_cont] [date] NOT NULL,
+	[total_vend] [money] NULL,
+	[endereco] [varchar](150) NOT NULL,
+	[Password] [varchar](12) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id_vendedor] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[CPF] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[compra]  WITH CHECK ADD FOREIGN KEY([id_cliente])
+REFERENCES [dbo].[cliente] ([id_cliente])
+GO
+ALTER TABLE [dbo].[compra]  WITH CHECK ADD FOREIGN KEY([id_produto])
+REFERENCES [dbo].[produto] ([id_produto])
+GO
+ALTER TABLE [dbo].[compra]  WITH CHECK ADD FOREIGN KEY([id_vendedor])
+REFERENCES [dbo].[vendedor] ([id_vendedor])
+GO
