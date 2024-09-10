@@ -1,12 +1,11 @@
 package packageController;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
-
-
 import java.util.ResourceBundle;
 
-import java.net.URL;
-
+import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,7 +22,7 @@ import javafx.scene.text.Text;
 import packageControler.FornecedorDAO;
 import packageModel.Fornecedor;
 
-public class ControllerFornecedor implements Initializable{
+public class ControllerFornecedor  implements Initializable{
 
 
     @FXML
@@ -41,6 +40,12 @@ public class ControllerFornecedor implements Initializable{
     @FXML
     private Button btnFornecedor;
 
+    @FXML
+    private Button btnCadastrar;
+    
+    @FXML
+    private Button btnEditar;
+    
     @FXML
     private Button btnInicio;
 
@@ -88,7 +93,6 @@ public class ControllerFornecedor implements Initializable{
     private ObservableList<Fornecedor> ArrayFornecedor;
    	private FornecedorDAO fornecedor= new FornecedorDAO();
     
-   	@Override
    	public void initialize(URL arg0, ResourceBundle arg1) {
 		CarregarTableFornecedor();
 	}
@@ -139,8 +143,45 @@ public class ControllerFornecedor implements Initializable{
 			}
 		}
 	}
+	@FXML
+	void btnPesquisarAction(ActionEvent event) {
 
-	
-	
+		ArrayFornecedor = FXCollections.observableArrayList(fornecedor.read());
+		columnID.setCellValueFactory(new PropertyValueFactory<>("id_cliente"));
+		columnNOME.setCellValueFactory(new PropertyValueFactory<>("Nome"));
+		columnCNPJ.setCellValueFactory(new PropertyValueFactory<>("CNPJ"));
+		columnEMAIL.setCellValueFactory(new PropertyValueFactory<>("Email"));
+		columnTELEFONE.setCellValueFactory(new PropertyValueFactory<>("TElefone"));
+		columnENDERECO.setCellValueFactory(new PropertyValueFactory<>("Endereco"));
+		columnTIPJURID.setCellValueFactory(new PropertyValueFactory<>("TipoJur"));
+		TableFornecedor.setItems(ArrayFornecedor);
+		TableFornecedor.refresh();
 
+	}
+
+	@FXML
+	void btnCadastrarACTION(ActionEvent event) throws IOException {
+
+		fornecedorEditar = null;
+		Main.TelaCadastroFornecedor();
+	}
+
+	public static Fornecedor fornecedorEditar = new Fornecedor();
+
+	@FXML
+	void btnEditarACTION(ActionEvent event) throws IOException {
+		if (TableFornecedor.getSelectionModel().getSelectedIndex() == -1) {
+			Alert menssagemDeErro = new Alert(Alert.AlertType.INFORMATION);
+			menssagemDeErro.setContentText("Selecione um Cliente para editat primeiro!");
+			menssagemDeErro.show();
+		} else {
+			int i = TableFornecedor.getSelectionModel().getSelectedIndex();
+			fornecedorEditar = TableFornecedor.getItems().get(i);
+			Main.TelaCadastroCliente();
+		}
+	}
 }
+	
+	
+
+

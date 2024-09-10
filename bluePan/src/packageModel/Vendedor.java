@@ -91,4 +91,5 @@ public class Vendedor {
 	public void setPassword(String password) {
 		Password = password;
 	}
-}		
+	
+}

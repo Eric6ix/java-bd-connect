@@ -13,59 +13,59 @@ import javafx.stage.Stage;
 import packageControler.ClienteDAO;
 import packageModel.Cliente;
 
-public class ControllerCadastroCliente implements Initializable {
+public class ControllerCadastroVendedor implements Initializable{
 
+	
 	@FXML
-	private Button btnCancelar;
+    private Button btnCancelar;
 
-	@FXML
-	private Button btnSalvar;
+    @FXML
+    private Button btnSalvar;
 
-	@FXML
-	private Text txtCliente;
+    @FXML
+    private TextField txtCpf;
 
-	@FXML
-	private TextField txtCpfCnpj;
+    @FXML
+    private TextField txtDataContr;
 
-	@FXML
-	private TextField txtDataNasc;
+    @FXML
+    private TextField txtDataNasc;
 
-	@FXML
-	private TextField txtDataPCom;
+    @FXML
+    private TextField txtEmail;
 
-	@FXML
-	private TextField txtEmail;
+    @FXML
+    private TextField txtEndereco;
 
-	@FXML
-	private TextField txtEndereco;
+    @FXML
+    private TextField txtFone;
 
-	@FXML
-	private TextField txtFone;
+    @FXML
+    private TextField txtNome;
 
-	@FXML
-	private TextField txtNome;
+    @FXML
+    private TextField txtSenha;
 
-	@FXML
-	private TextField txtTipoJ;
+    @FXML
+    private TextField txtTipoJ;
 
-	@FXML
-	private Button btnCadastrar;
+    @FXML
+    private TextField txtTotalVendido;
 
-	@FXML
-	private Button btnEditar;
-
-	@FXML
-	void btnDeletarCliente(ActionEvent event) {
+    @FXML
+    private Text Vendedor;
+    
+    @FXML
+	void btnDeletarVendedor(ActionEvent event) {
 		txtNome.setText("");
-		txtCliente.setText("");
-		txtCpfCnpj.setText("");
-		txtEmail.setText("");
-		txtDataPCom.setText("");
-		txtDataNasc.setText("");
-		txtEndereco.setText("");
+		txtCpf.setText("");
 		txtFone.setText("");
-		txtTipoJ.setText("");
-		ControllerCliente.clienteEditar = null;
+		txtEmail.setText("");
+		txtDataNasc.setText("");
+		txtTotalVendido.setText("");
+		txtEndereco.setText("");
+		txtSenha.setText("");
+		ControllerVendedor.vendedorEditar = null;
 
 		Stage stage = (Stage) btnCancelar.getScene().getWindow();
 		stage.close();
@@ -75,15 +75,16 @@ public class ControllerCadastroCliente implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 
-		if (ControllerCliente.clienteEditar != null) {
-			txtNome.setText(ControllerCliente.clienteEditar.getNome());
-			txtCpfCnpj.setText(ControllerCliente.clienteEditar.getCPF_CNPJ());
-			txtDataNasc.setText(ControllerCliente.clienteEditar.getData_nasc());
-			txtDataPCom.setText(ControllerCliente.clienteEditar.getData_primComp());
-			txtEmail.setText(ControllerCliente.clienteEditar.getEmail());
-			txtEndereco.setText(ControllerCliente.clienteEditar.getEndereco());
-			txtFone.setText(ControllerCliente.clienteEditar.getTelefone());
-			txtTipoJ.setText(ControllerCliente.clienteEditar.getTipoJur());
+		if (ControllerVendedor.vendedorEditar != null) {
+			txtNome.setText(ControllerVendedor.vendedorEditar.getNome());
+			txtCpf.setText(ControllerVendedor.vendedorEditar.getCPF());
+			txtFone.setText(ControllerVendedor.vendedorEditar.getTelefone());
+			txtEmail.setText(ControllerVendedor.vendedorEditar.getEmail());
+			txtDataContr.setText(ControllerVendedor.vendedorEditar.getData_cont());
+			txtDataNasc.setText(ControllerVendedor.vendedorEditar.getData_nasc());
+			txtTotalVendido.setText(ControllerVendedor.vendedorEditar.getTotal_vend());
+			txtEndereco.setText(ControllerVendedor.vendedorEditar.getEndereco());
+			txtPassword.setText(ControllerVendedor.vendedorEditar.getPassword());
 		}
 	}
 

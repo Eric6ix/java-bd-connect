@@ -1,9 +1,11 @@
 package packageController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -74,8 +76,11 @@ public class ControllerVendedor implements Initializable {
 	@FXML
 	private TableColumn<Vendedor, String> columnCONTRADACAO;
 //o import sempre tem que ser JAVAFX
+	
 	@FXML
 	private TableColumn<Vendedor, String> columnCPF;
+	@FXML
+	private TableColumn<Vendedor, String> columnPassword;
 
 	@FXML
 	private TableColumn<Vendedor, String> columnEMAIL;
@@ -117,6 +122,7 @@ public class ControllerVendedor implements Initializable {
 		columnCONTRADACAO.setCellValueFactory(new PropertyValueFactory<>("Data_cont"));
 		columnVENDIDOS.setCellValueFactory(new PropertyValueFactory<>("Total_vend"));
 		columnENDERECO.setCellValueFactory(new PropertyValueFactory<>("Endereco"));
+		columnPassword.setCellValueFactory(new PropertyValueFactory<>("Password"));
 		TableVendedor.setItems(ArrayVendedor);
 	}
 	
@@ -161,12 +167,33 @@ public class ControllerVendedor implements Initializable {
 		columnCONTRADACAO.setCellValueFactory(new PropertyValueFactory<>("Data_cont"));
 		columnVENDIDOS.setCellValueFactory(new PropertyValueFactory<>("Total_vend"));
 		columnENDERECO.setCellValueFactory(new PropertyValueFactory<>("Endereco"));
+		columnPassword.setCellValueFactory(new PropertyValueFactory<>("Password"));
 		TableVendedor.setItems(ArrayVendedor);
 			TableVendedor.refresh();
-			
-		
 	}
 	
+	
+	@FXML
+	void btnCadastrarACTION(ActionEvent event) throws IOException {
+
+		vendedorEditar = null;
+		Main.TelaCadastroVendedor();
+	}
+
+	public static Vendedor vendedorEditar = new Vendedor();
+
+	@FXML
+	void btnEditarACTION(ActionEvent event) throws IOException {
+		if (TableVendedor.getSelectionModel().getSelectedIndex() == -1) {
+			Alert menssagemDeErro = new Alert(Alert.AlertType.INFORMATION);
+			menssagemDeErro.setContentText("Selecione um Vendedor para editat primeiro!");
+			menssagemDeErro.show();
+		} else {
+			int i = TableVendedor.getSelectionModel().getSelectedIndex();
+			vendedorEditar = TableVendedor.getItems().get(i);
+			Main.TelaCadastroVendedor();
+		}
+	}
 	
 
 }

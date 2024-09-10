@@ -24,8 +24,6 @@
         </columns>
       </TableView>
       <Button fx:id="btnExcluir" layoutX="670.0" layoutY="64.0" mnemonicParsing="false" text="Excluir" />
-      <Button fx:id="BtnEditar" layoutX="805.0" layoutY="64.0" mnemonicParsing="false" text="Editar" />
-      <Button fx:id="BtnCriar" layoutX="742.0" layoutY="64.0" mnemonicParsing="false" text="Criar" />
       <TextField fx:id="TxtFieldPsquisa" layoutX="216.0" layoutY="64.0" prefHeight="26.0" prefWidth="425.0" />
       <Button fx:id="btnPesquisar" layoutX="120.0" layoutY="64.0" mnemonicParsing="false" text="Pesquisar" />
       <Button fx:id="btnVoltra" layoutX="14.0" layoutY="501.0" mnemonicParsing="false" text="Voltar" />
@@ -40,5 +38,7 @@
       <Button fx:id="btnFornecedor" layoutX="40.0" layoutY="227.0" mnemonicParsing="false" text="Fornecedor" />
       <Button fx:id="btnProduto" layoutX="50.0" layoutY="258.0" mnemonicParsing="false" text="Produto" />
       <Button fx:id="btnVendedor" layoutX="46.0" layoutY="289.0" mnemonicParsing="false" text="Vendedor" />
+      <Button fx:id="btnCadastrar" layoutX="724.0" layoutY="64.0" mnemonicParsing="false" onAction="#btnCadastrarACTION" text="Cadastrar" />
+      <Button fx:id="btnEditar" layoutX="794.0" layoutY="64.0" mnemonicParsing="false" onAction="#btnEditarACTION" text="Editat" />
    </children>
 </AnchorPane>
