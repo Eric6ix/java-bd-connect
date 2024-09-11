@@ -150,7 +150,7 @@ public class ControllerCliente implements Initializable {
 	@FXML
 	void btnPesquisarAction(ActionEvent event) {
 
-		ArrayCliente = FXCollections.observableArrayList(cliente.read());
+		ArrayCliente = FXCollections.observableArrayList(cliente.search(TxtFieldPsquisar.getText()));
 		columnID.setCellValueFactory(new PropertyValueFactory<>("id_cliente"));
 		columnNOME.setCellValueFactory(new PropertyValueFactory<>("Nome"));
 		columnCPF_CNPJ.setCellValueFactory(new PropertyValueFactory<>("CPF_CNPJ"));
@@ -162,6 +162,7 @@ public class ControllerCliente implements Initializable {
 		columnTipJuri.setCellValueFactory(new PropertyValueFactory<>("TipoJur"));
 		TableCliente.setItems(ArrayCliente);
 		TableCliente.refresh();
+		
 
 	}
 
@@ -170,6 +171,7 @@ public class ControllerCliente implements Initializable {
 
 		clienteEditar = null;
 		Main.TelaCadastroCliente();
+		CarregarTableCliente();
 	}
 
 	public static Cliente clienteEditar = new Cliente();
@@ -185,5 +187,6 @@ public class ControllerCliente implements Initializable {
 			clienteEditar = TableCliente.getItems().get(i);
 			Main.TelaCadastroCliente();
 		}
+		CarregarTableCliente();
 	}
 }

@@ -25,7 +25,7 @@
       </TableView>
       <Button fx:id="btnExcluir" layoutX="670.0" layoutY="64.0" mnemonicParsing="false" text="Excluir" />
       <TextField fx:id="TxtFieldPsquisa" layoutX="216.0" layoutY="64.0" prefHeight="26.0" prefWidth="425.0" />
-      <Button fx:id="btnPesquisar" layoutX="120.0" layoutY="64.0" mnemonicParsing="false" text="Pesquisar" />
+      <Button fx:id="btnPesquisar" layoutX="120.0" layoutY="64.0" mnemonicParsing="false" onAction="#btnPesquisarAction" text="Pesquisar" />
       <Button fx:id="btnVoltra" layoutX="14.0" layoutY="501.0" mnemonicParsing="false" text="Voltar" />
       <Text fx:id="txtVendedor" layoutX="338.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vendedor" textAlignment="CENTER" wrappingWidth="180.93087768554688">
          <font>

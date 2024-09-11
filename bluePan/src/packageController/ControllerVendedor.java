@@ -79,8 +79,6 @@ public class ControllerVendedor implements Initializable {
 	
 	@FXML
 	private TableColumn<Vendedor, String> columnCPF;
-	@FXML
-	private TableColumn<Vendedor, String> columnPassword;
 
 	@FXML
 	private TableColumn<Vendedor, String> columnEMAIL;
@@ -122,7 +120,6 @@ public class ControllerVendedor implements Initializable {
 		columnCONTRADACAO.setCellValueFactory(new PropertyValueFactory<>("Data_cont"));
 		columnVENDIDOS.setCellValueFactory(new PropertyValueFactory<>("Total_vend"));
 		columnENDERECO.setCellValueFactory(new PropertyValueFactory<>("Endereco"));
-		columnPassword.setCellValueFactory(new PropertyValueFactory<>("Password"));
 		TableVendedor.setItems(ArrayVendedor);
 	}
 	
@@ -167,9 +164,8 @@ public class ControllerVendedor implements Initializable {
 		columnCONTRADACAO.setCellValueFactory(new PropertyValueFactory<>("Data_cont"));
 		columnVENDIDOS.setCellValueFactory(new PropertyValueFactory<>("Total_vend"));
 		columnENDERECO.setCellValueFactory(new PropertyValueFactory<>("Endereco"));
-		columnPassword.setCellValueFactory(new PropertyValueFactory<>("Password"));
 		TableVendedor.setItems(ArrayVendedor);
-			TableVendedor.refresh();
+		CarregarTableVendedor();
 	}
 	
 	
@@ -178,6 +174,7 @@ public class ControllerVendedor implements Initializable {
 
 		vendedorEditar = null;
 		Main.TelaCadastroVendedor();
+		CarregarTableVendedor();
 	}
 
 	public static Vendedor vendedorEditar = new Vendedor();
@@ -193,6 +190,7 @@ public class ControllerVendedor implements Initializable {
 			vendedorEditar = TableVendedor.getItems().get(i);
 			Main.TelaCadastroVendedor();
 		}
+		CarregarTableVendedor();
 	}
 	
 

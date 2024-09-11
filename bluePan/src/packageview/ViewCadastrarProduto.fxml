@@ -19,7 +19,6 @@
       <Text layoutX="40.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
       <TextField fx:id="txtCodigo" layoutX="520.0" layoutY="104.0" />
       <Text fx:id="txtfEstoque" layoutX="524.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código" />
-      <Text layoutX="40.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fornecedor" />
       <TextField fx:id="txtEstoque" layoutX="520.0" layoutY="179.0" />
       <Text layoutX="524.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estoque" />
       <Text layoutX="36.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de nascimento" />
@@ -31,6 +30,5 @@
       <DatePicker fx:id="txtDataFab" layoutX="235.0" layoutY="317.0" />
       <TextField fx:id="txtTipoUn" layoutX="521.0" layoutY="309.0" />
       <Text layoutX="525.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo Un." />
-      <TextField fx:id="txtFornecedor" layoutX="36.0" layoutY="179.0" />
    </children>
 </AnchorPane>

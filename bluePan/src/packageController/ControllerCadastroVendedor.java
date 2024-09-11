@@ -1,6 +1,7 @@
 package packageController;
 
 import java.net.URL;
+
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -10,8 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import packageControler.ClienteDAO;
-import packageModel.Cliente;
+import packageControler.VendedorDAO;
+import packageModel.Vendedor;
 
 public class ControllerCadastroVendedor implements Initializable{
 
@@ -44,9 +45,6 @@ public class ControllerCadastroVendedor implements Initializable{
     private TextField txtNome;
 
     @FXML
-    private TextField txtSenha;
-
-    @FXML
     private TextField txtTipoJ;
 
     @FXML
@@ -64,7 +62,6 @@ public class ControllerCadastroVendedor implements Initializable{
 		txtDataNasc.setText("");
 		txtTotalVendido.setText("");
 		txtEndereco.setText("");
-		txtSenha.setText("");
 		ControllerVendedor.vendedorEditar = null;
 
 		Stage stage = (Stage) btnCancelar.getScene().getWindow();
@@ -84,38 +81,37 @@ public class ControllerCadastroVendedor implements Initializable{
 			txtDataNasc.setText(ControllerVendedor.vendedorEditar.getData_nasc());
 			txtTotalVendido.setText(ControllerVendedor.vendedorEditar.getTotal_vend());
 			txtEndereco.setText(ControllerVendedor.vendedorEditar.getEndereco());
-			txtPassword.setText(ControllerVendedor.vendedorEditar.getPassword());
 		}
 	}
 
 	@FXML
 	void btnCadastrar(ActionEvent event) {
-		if (ControllerCliente.clienteEditar == null) {
-			Cliente cliente = new Cliente();
-			cliente.setNome(txtNome.getText());
-			cliente.setCPF_CNPJ(txtCpfCnpj.getText());
-			cliente.setData_nasc(txtDataNasc.getText());
-			cliente.setData_primComp(txtDataPCom.getText());
-			cliente.setEmail(txtEmail.getText());
-			cliente.setEndereco(txtEndereco.getText());
-			cliente.setTelefone(txtFone.getText());
-			cliente.setTipoJur(txtTipoJ.getText());
-			ClienteDAO prod = new ClienteDAO();
-			prod.create(cliente);
+		if (ControllerVendedor.vendedorEditar == null) {
+			Vendedor vendedor = new Vendedor();
+			vendedor.setNome(txtNome.getText());
+			vendedor.setCPF(txtCpf.getText());
+			vendedor.setData_nasc(txtDataNasc.getText());
+			vendedor.setData_cont(txtDataContr.getText());
+			vendedor.setEmail(txtEmail.getText());
+			vendedor.setEndereco(txtEndereco.getText());
+			vendedor.setTelefone(txtFone.getText());
+			vendedor.setTotal_vend(txtTotalVendido.getText());
+			VendedorDAO prod = new VendedorDAO();
+			prod.create(vendedor);
 			Stage stage = (Stage) btnCancelar.getScene().getWindow();
 			stage.close();
 		} else {
-			Cliente cliente = new Cliente();
-			cliente.setNome(txtNome.getText());
-			cliente.setCPF_CNPJ(txtCpfCnpj.getText());
-			cliente.setData_nasc(txtDataNasc.getText());
-			cliente.setData_primComp(txtDataPCom.getText());
-			cliente.setEmail(txtEmail.getText());
-			cliente.setEndereco(txtEndereco.getText());
-			cliente.setTelefone(txtFone.getText());
-			cliente.setTipoJur(txtTipoJ.getText());
-			ClienteDAO prod = new ClienteDAO();
-			prod.update(cliente);
+			Vendedor vendedor = new Vendedor();
+			vendedor.setNome(txtNome.getText());
+			vendedor.setCPF(txtCpf.getText());
+			vendedor.setData_nasc(txtDataNasc.getText());
+			vendedor.setData_cont(txtDataContr.getText());
+			vendedor.setEmail(txtEmail.getText());
+			vendedor.setEndereco(txtEndereco.getText());
+			vendedor.setTelefone(txtFone.getText());
+			vendedor.setTotal_vend(txtTotalVendido.getText());
+			VendedorDAO prod = new VendedorDAO();
+			prod.update(vendedor);
 			Stage stage = (Stage) btnCancelar.getScene().getWindow();
 			stage.close();
 		}

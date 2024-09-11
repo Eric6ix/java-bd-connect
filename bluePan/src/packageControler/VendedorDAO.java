@@ -54,8 +54,8 @@ public class VendedorDAO {
 		PreparedStatement stmt = null;
 
 		try {
-
-			stmt = con.prepareStatement("INSERT INTO vendedor VALUES(?,?,?,?,?,?,?,?)");
+																//Password não pode passar
+			stmt = con.prepareStatement("INSERT INTO vendedor(nome,CPF, email, telefone, data_nasc, data_cont, total_vend, endereco) VALUES(?,?,?,?,?,?,?,?)");
 			
 			stmt.setString(1, c.getNome());
 			stmt.setString(2, c.getCPF());

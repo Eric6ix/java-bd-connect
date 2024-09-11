@@ -148,7 +148,7 @@ public class ControllerProduto implements Initializable{
 	@FXML
 	void btnPesquisarAction(ActionEvent event) {
 		
-		ArrayProduto= FXCollections.observableArrayList(produto.read());
+		ArrayProduto= FXCollections.observableArrayList(produto.search(TxtFieldPsquisar.getText()));
 		columnID.setCellValueFactory(new PropertyValueFactory<>("id_produto"));
 		columnCODIGO.setCellValueFactory(new PropertyValueFactory<>("Codigo"));
 		columnNOME.setCellValueFactory(new PropertyValueFactory<>("Nome"));
@@ -157,8 +157,7 @@ public class ControllerProduto implements Initializable{
 		columnDATAFAB.setCellValueFactory(new PropertyValueFactory<>("Data_fab"));
 		columnDATAVAL.setCellValueFactory(new PropertyValueFactory<>("Data_val"));
 		TableProduto.setItems(ArrayProduto);
-			TableProduto.refresh();
-			
+		TableProduto.refresh();
 		
 	}
 	@FXML
@@ -166,6 +165,7 @@ public class ControllerProduto implements Initializable{
 		
 		produtoEditar = null;
 		Main.TelaCadastroProd();
+		CarregarTableProduto();
 	}
 	
 	public static Produto produtoEditar = new Produto();
@@ -181,8 +181,10 @@ public class ControllerProduto implements Initializable{
 			produtoEditar = TableProduto.getItems().get(i);
 			Main.TelaCadastroProd();
 		}
-    }
-	
+				CarregarTableProduto();
+		
+		
+	}
 	
 }
 

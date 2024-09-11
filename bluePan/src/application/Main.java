@@ -210,7 +210,7 @@ public class Main extends Application {
 		 * 
 		 * // create manual :
 		 * 
-		 * Vendedor cl = new Vendedor(); cl.setNome("Ronaldo"); cl.setCPF("126545549");
+		 * Vendedor cl = new Vendedor(); cl.setNome("Ronaldo"); cl.setCPF("126545540");
 		 * // quando é coluna de tipo unico repete o update no final || e também para //
 		 * identificar a coluna ãncora cl.setEmail("xuxa@teste.com");
 		 * cl.setTelefone("639976545-6765"); // quando fizer o update, tem que dar outro

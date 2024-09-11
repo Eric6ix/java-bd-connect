@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import packageConnectionFactory.ConnectionDataBase;
+import packageModel.Cliente;
 import packageModel.Produto;
 
 public class ProdutoDAO {
@@ -95,6 +96,8 @@ public class ProdutoDAO {
 				ConnectionDataBase.closeConnection(con, stmt);
 			}
 		}
+		
+		
 
 		public void delete(String codigo) {
 			Connection con = ConnectionDataBase.getConnection();
@@ -112,8 +115,46 @@ public class ProdutoDAO {
 			} finally {
 				ConnectionDataBase.closeConnection(con, stmt);
 			}
-		}
-
+		
+		
+		
 	}
+		
+		public ArrayList<Produto> search(String search) {
+			search = "%"+search+"%";
+			Connection con = ConnectionDataBase.getConnection();
+			PreparedStatement stmt = null;
+			ResultSet rs = null;
+			ArrayList<Produto> produto = new ArrayList<>();
 
+				try {
+					stmt = con.prepareStatement("SELECT * FROM Produto where codigo like ? or nome like ?");
+					stmt.setString(1, search);
+					stmt.setString(2, search);
+					rs = stmt.executeQuery();
+					while (rs.next()) {
+						Produto c = new Produto();
+						c.setId_produto(rs.getString(1));
+						c.setCodigo(rs.getString(2));
+						c.setNome(rs.getString(3));
+						c.setEstoque(rs.getString(4)); // select manual
+						c.setPreco_un(rs.getString(5));
+						c.setData_fab(rs.getString(6));
+						c.setData_val(rs.getString(7));
+						c.setTipo_un(rs.getString(8));
+
+						produto.add(c);
+					}
+
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					ConnectionDataBase.closeConnection(con, stmt, rs);
+				}
+				return produto;
+
+			}
+
+}
 
