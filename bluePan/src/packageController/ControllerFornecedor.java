@@ -146,8 +146,8 @@ public class ControllerFornecedor  implements Initializable{
 	@FXML
 	void btnPesquisarAction(ActionEvent event) {
 
-		ArrayFornecedor = FXCollections.observableArrayList(fornecedor.read());
-		columnID.setCellValueFactory(new PropertyValueFactory<>("id_cliente"));
+		ArrayFornecedor = FXCollections.observableArrayList(fornecedor.search(TxtFieldPsquisa.getText()));
+		columnID.setCellValueFactory(new PropertyValueFactory<>("id_Fornecedor"));
 		columnNOME.setCellValueFactory(new PropertyValueFactory<>("Nome"));
 		columnCNPJ.setCellValueFactory(new PropertyValueFactory<>("CNPJ"));
 		columnEMAIL.setCellValueFactory(new PropertyValueFactory<>("Email"));
@@ -164,6 +164,7 @@ public class ControllerFornecedor  implements Initializable{
 
 		fornecedorEditar = null;
 		Main.TelaCadastroFornecedor();
+		CarregarTableFornecedor();
 	}
 
 	public static Fornecedor fornecedorEditar = new Fornecedor();
@@ -172,12 +173,13 @@ public class ControllerFornecedor  implements Initializable{
 	void btnEditarACTION(ActionEvent event) throws IOException {
 		if (TableFornecedor.getSelectionModel().getSelectedIndex() == -1) {
 			Alert menssagemDeErro = new Alert(Alert.AlertType.INFORMATION);
-			menssagemDeErro.setContentText("Selecione um Cliente para editat primeiro!");
+			menssagemDeErro.setContentText("Selecione um Fornecedor para editat primeiro!");
 			menssagemDeErro.show();
 		} else {
 			int i = TableFornecedor.getSelectionModel().getSelectedIndex();
 			fornecedorEditar = TableFornecedor.getItems().get(i);
-			Main.TelaCadastroCliente();
+			Main.TelaCadastroFornecedor();
+			CarregarTableFornecedor();
 		}
 	}
 }

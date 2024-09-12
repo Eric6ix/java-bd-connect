@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import packageConnectionFactory.ConnectionDataBase;
+import packageModel.Cliente;
 import packageModel.Fornecedor;
 
 public class FornecedorDAO {
@@ -110,6 +111,43 @@ public class FornecedorDAO {
 		} finally {
 			ConnectionDataBase.closeConnection(con, stmt);
 		}
+	}
+	
+	
+	
+	
+	
+	public ArrayList<Fornecedor> search(String search) {
+		search = "%"+search+"%";
+		Connection con = ConnectionDataBase.getConnection();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		ArrayList<Fornecedor> fornecedor = new ArrayList<>();
+
+		try {
+			stmt = con.prepareStatement("SELECT * FROM Fornecedor where Nome like ? or CNPJ like ? ");
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Fornecedor c = new Fornecedor();
+				c.setId_Fornecedor(rs.getString(1));
+				c.setNome(rs.getString(2));
+				c.setCNPJ(rs.getString(3));
+				c.setEmail(rs.getString(4)); // select manual
+				c.setTElefone(rs.getString(5));
+				c.setEndereco(rs.getString(6));
+				c.setTipoJur(rs.getString(7));
+
+				fornecedor.add(c);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			ConnectionDataBase.closeConnection(con, stmt, rs);
+		}
+		return fornecedor;
+
 	}
 
 }
