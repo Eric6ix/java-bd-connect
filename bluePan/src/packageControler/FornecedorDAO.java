@@ -124,8 +124,10 @@ public class FornecedorDAO {
 		ResultSet rs = null;
 		ArrayList<Fornecedor> fornecedor = new ArrayList<>();
 
-		try {
-			stmt = con.prepareStatement("SELECT * FROM Fornecedor where Nome like ? or CNPJ like ? ");
+		try {																	//no search não colocar "="
+			stmt = con.prepareStatement("SELECT * FROM Fornecedor where Nome like ? or CNPJ like ?");
+			stmt.setString(1, search);
+			stmt.setString(2, search);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				Fornecedor c = new Fornecedor();

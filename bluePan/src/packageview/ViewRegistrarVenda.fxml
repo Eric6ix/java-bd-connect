@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="574.0" minWidth="666.0" prefHeight="574.0" prefWidth="868.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="TableVenda" layoutX="382.0" layoutY="291.0" prefHeight="238.0" prefWidth="483.0">
+         <columns>
+            <TableColumn fx:id="columnID" prefWidth="75.0" text="id" />
+            <TableColumn fx:id="columnNOME" prefWidth="176.0" text="nome" />
+            <TableColumn fx:id="columnCNPJ" prefWidth="231.199951171875" text="CNPJ" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnSalvar" layoutX="644.0" layoutY="534.0" mnemonicParsing="false" onAction="#btnDeletarFornecedor" prefHeight="26.0" prefWidth="83.0" text="Salvar venda" />
+      <TextField fx:id="TxtFieldPsquisa" layoutX="382.0" layoutY="256.0" prefHeight="26.0" prefWidth="392.0" />
+      <Button fx:id="btnPesquisar" layoutX="783.0" layoutY="256.0" mnemonicParsing="false" onAction="#btnPesquisarAction" text="Pesquisar" />
+      <Text fx:id="txtFornecedor" layoutX="327.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRAR VENDA" textAlignment="CENTER" wrappingWidth="241.73089599609375">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnCancelar" layoutX="747.0" layoutY="534.0" mnemonicParsing="false" onAction="#btnEditarACTION" text="Cancelar venda" />
+      <Line endX="653.2000732421875" endY="7.62939453125E-6" layoutX="174.0" layoutY="124.0" startX="-174.00001525878906" startY="7.62939453125E-6" />
+      <TextField fx:id="TxtFieldPsquisa1" layoutX="73.0" layoutY="88.0" prefHeight="26.0" prefWidth="123.0" />
+      <Text layoutX="74.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+      <TextField fx:id="TxtFieldPsquisa11" layoutX="233.0" layoutY="88.0" prefHeight="26.0" prefWidth="123.0" />
+      <Text layoutX="234.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF" />
+      <TextField fx:id="TxtFieldPsquisa12" layoutX="451.0" layoutY="88.0" prefHeight="26.0" prefWidth="373.0" />
+      <Text layoutX="452.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
+      <Text layoutX="69.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vendedor" />
+      <Line endX="653.2000732421875" endY="7.62939453125E-6" layoutX="176.0" layoutY="226.0" startX="-176.0" />
+      <TextField fx:id="TxtFieldPsquisa13" layoutX="75.0" layoutY="190.0" prefHeight="26.0" prefWidth="123.0" />
+      <Text layoutX="76.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+      <TextField fx:id="TxtFieldPsquisa111" layoutX="235.0" layoutY="190.0" prefHeight="26.0" prefWidth="123.0" />
+      <Text layoutX="236.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF" />
+      <TextField fx:id="TxtFieldPsquisa121" layoutX="453.0" layoutY="190.0" prefHeight="26.0" prefWidth="373.0" />
+      <Text layoutX="454.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
+      <Text layoutX="71.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente" />
+      <Line endX="218.99996948242188" layoutX="141.0" layoutY="344.0" startX="-141.00001525878906" />
+      <TextField fx:id="TxtFieldPsquisa14" layoutX="40.0" layoutY="308.0" prefHeight="26.0" prefWidth="123.0" />
+      <Text layoutX="41.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade" />
+      <TextField fx:id="TxtFieldPsquisa112" layoutX="200.0" layoutY="308.0" prefHeight="26.0" prefWidth="123.0" />
+      <Text layoutX="201.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço UN" />
+      <Text layoutX="36.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produto" />
+      <TextField fx:id="TxtFieldPsquisa1121" layoutX="41.0" layoutY="383.0" prefHeight="26.0" prefWidth="123.0" />
+      <Text layoutX="42.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desconto" />
+      <TextField fx:id="TxtFieldPsquisa1122" layoutX="41.0" layoutY="462.0" prefHeight="26.0" prefWidth="123.0" />
+      <Text layoutX="42.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço Total" />
+      <Text layoutX="382.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
+   </children>
+</AnchorPane>

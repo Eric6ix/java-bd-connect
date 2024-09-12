@@ -154,7 +154,8 @@ public class ControllerVendedor implements Initializable {
 	@FXML
 	void btnPesquisarAction(ActionEvent event) {
 		
-		ArrayVendedor = FXCollections.observableArrayList(vendedor.read());
+		
+		ArrayVendedor= FXCollections.observableArrayList(vendedor.search(TxtFieldPsquisa.getText()));
 		columnID.setCellValueFactory(new PropertyValueFactory<>("id_Vendedor"));
 		columnNOME.setCellValueFactory(new PropertyValueFactory<>("Nome"));
 		columnCPF.setCellValueFactory(new PropertyValueFactory<>("CPF"));
@@ -165,7 +166,7 @@ public class ControllerVendedor implements Initializable {
 		columnVENDIDOS.setCellValueFactory(new PropertyValueFactory<>("Total_vend"));
 		columnENDERECO.setCellValueFactory(new PropertyValueFactory<>("Endereco"));
 		TableVendedor.setItems(ArrayVendedor);
-		CarregarTableVendedor();
+		TableVendedor.refresh();
 	}
 	
 	

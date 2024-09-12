@@ -12,9 +12,9 @@
    <children>
       <TableView fx:id="TableVendedor" layoutX="176.0" layoutY="115.0" prefHeight="412.0" prefWidth="680.0">
         <columns>
-          <TableColumn fx:id="columnID" prefWidth="75.0" text="id" />
-          <TableColumn fx:id="columnNOME" prefWidth="75.0" text="nome" />
-            <TableColumn fx:id="columnCPF" prefWidth="75.0" text="CPF" />
+          <TableColumn fx:id="columnID" prefWidth="43.199981689453125" text="id" />
+          <TableColumn fx:id="columnNOME" prefWidth="102.40003967285156" text="nome" />
+            <TableColumn fx:id="columnCPF" prefWidth="82.39996337890625" text="CPF" />
             <TableColumn fx:id="columnEMAIL" prefWidth="75.0" text="Email" />
             <TableColumn fx:id="columnTELEFONE" prefWidth="75.0" text="Telefone" />
             <TableColumn fx:id="columnNASCIMENRO" prefWidth="75.0" text="Nascimento" />

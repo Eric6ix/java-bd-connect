@@ -28,11 +28,7 @@ public class ControllerMain {
     @FXML
     private Button btnButtonVendedor;
 
-    @FXML
-    void btButtonProduto(ActionEvent event) {
-    	Main.changeScreen("produto");
-    }
-
+    
     @FXML
     void btButtonRegistrarVenda(ActionEvent event) {
 
@@ -40,11 +36,12 @@ public class ControllerMain {
 
     @FXML
     void btButtonRelatoio(ActionEvent event) {
-
+    	Main.changeScreen("relatorio");
     }
-   @FXML
-    void btnPesquisarAction(ActionEvent event) {
-    	
+    
+    @FXML
+    void btButtonProduto(ActionEvent event) {
+    	Main.changeScreen("produto");
     }
 	
 	@FXML
@@ -56,6 +53,7 @@ public class ControllerMain {
 	void btButtonCliente(ActionEvent event) {
 		Main.changeScreen("cliente");
 	}
+	
 	@FXML
 	void btButtonFornecedor(ActionEvent event) {
 		Main.changeScreen("fornecedor");

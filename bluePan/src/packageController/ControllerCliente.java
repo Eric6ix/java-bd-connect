@@ -115,6 +115,7 @@ public class ControllerCliente implements Initializable {
 		TableCliente.setItems(ArrayCliente);
 	}
 
+	
 	@FXML
 	public void btnDeletar(ActionEvent event) {
 		int i = TableCliente.getSelectionModel().getSelectedIndex();

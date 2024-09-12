@@ -145,7 +145,7 @@ public class ControllerFornecedor  implements Initializable{
 	}
 	@FXML
 	void btnPesquisarAction(ActionEvent event) {
-
+		
 		ArrayFornecedor = FXCollections.observableArrayList(fornecedor.search(TxtFieldPsquisa.getText()));
 		columnID.setCellValueFactory(new PropertyValueFactory<>("id_Fornecedor"));
 		columnNOME.setCellValueFactory(new PropertyValueFactory<>("Nome"));

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import packageConnectionFactory.ConnectionDataBase;
+import packageModel.Cliente;
 import packageModel.Vendedor;
 
 
@@ -164,6 +165,52 @@ public class VendedorDAO {
 		
 		
 		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public ArrayList<Vendedor> search(String search) {
+		search = "%"+search+"%";
+		Connection con = ConnectionDataBase.getConnection();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		ArrayList<Vendedor> vendedor = new ArrayList<>();
+
+		try {
+			stmt = con.prepareStatement("SELECT * FROM Vendedor where Nome like ? or CPF like ?");
+			stmt.setString(1, search);
+			stmt.setString(2, search);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Vendedor c = new Vendedor();
+				c.setId_Vendedor(rs.getString(1));
+				c.setNome(rs.getString(2));
+				c.setCPF(rs.getString(3));
+				c.setEmail(rs.getString(4)); // select manual
+				c.setTelefone(rs.getString(5));
+				c.setData_nasc(rs.getString(6));
+				c.setData_cont(rs.getString(7));
+				c.setTotal_vend(rs.getString(8));
+				c.setEndereco(rs.getString(9));
+
+				vendedor.add(c);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			ConnectionDataBase.closeConnection(con, stmt, rs);
+		}
+		return vendedor;
+
 	}
 
 }

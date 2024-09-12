@@ -130,7 +130,7 @@ public class ClienteDAO {
 		ArrayList<Cliente> cliente = new ArrayList<>();
 
 		try {
-			stmt = con.prepareStatement("SELECT * FROM Forncedor where Nome like ? or CPF_CNPJ like ? ");
+			stmt = con.prepareStatement("SELECT * FROM Cliente where Nome like ? or CPF_CNPJ like ? ");
 			stmt.setString(1, search);
 			stmt.setString(2, search);
 			rs = stmt.executeQuery();

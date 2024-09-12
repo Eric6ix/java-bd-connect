@@ -17,6 +17,7 @@ public class Main extends Application {
 	private static Scene cliente;
 	private static Scene fornecedor;
 	private static Scene produto;
+	private static Scene relatorio;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -28,6 +29,9 @@ public class Main extends Application {
 
 			Parent fxmlLogin = FXMLLoader.load(getClass().getResource("/packageview/ViewLogin.fxml"));
 			login = new Scene(fxmlLogin);
+
+			Parent fxmlRelatorio = FXMLLoader.load(getClass().getResource("/packageview/ViewRelatorioCompra.fxml"));
+			relatorio = new Scene(fxmlRelatorio);
 
 			Parent fxmlMain = FXMLLoader.load(getClass().getResource("/packageview/ViewMain.fxml"));
 			main = new Scene(fxmlMain);
@@ -64,6 +68,8 @@ public class Main extends Application {
 			stage.setScene(login);
 		} else if (tela.equals("main")) {
 			stage.setScene(main);
+		} else if (tela.equals("relatorio")) {
+			stage.setScene(relatorio);
 		} else if (tela.equals("vendedor")) {
 			stage.setScene(vendedor);
 		} else if (tela.equals("fornecedor")) {
@@ -123,6 +129,26 @@ public class Main extends Application {
 		cadFornecedor.showAndWait();
 	}
 
+	private static Stage cadVendedor;
+
+	public static void TelaCadastroVendedor() throws IOException {
+		FXMLLoader VendedorCadastro = new FXMLLoader();
+		VendedorCadastro.setLocation(Main.class.getResource("/packageview/ViewCadastrarVendedor.fxml"));
+		Parent cadastroFornc = VendedorCadastro.load();
+		Scene scene2 = new Scene(cadastroFornc);
+
+		cadVendedor = new Stage();
+		cadVendedor.setTitle("Cadastro de Vendedor - BLUE PAN");
+		cadVendedor.initModality(Modality.WINDOW_MODAL);
+		cadVendedor.setScene(scene2);
+		cadVendedor.centerOnScreen();
+		cadVendedor.showAndWait();
+	}
+	
+	
+	
+	
+	
 	private static Stage cadVendedor;
 
 	public static void TelaCadastroVendedor() throws IOException {
