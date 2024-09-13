@@ -34,6 +34,7 @@ public class ControllerLogin {
     @FXML
     private TextField txtUser;
     
+    public static Vendedor vendedor = new Vendedor();
     
     @FXML
     void btnButtonTeste(ActionEvent event) {

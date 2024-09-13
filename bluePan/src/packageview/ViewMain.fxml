@@ -11,9 +11,9 @@
       <Button fx:id="btnButtonCliente" cache="true" layoutX="522.0" layoutY="99.0" mnemonicParsing="false" onAction="#btButtonCliente" prefHeight="111.0" prefWidth="99.0" text="Cliente" textAlignment="CENTER" />
       <Button fx:id="btnButtonProduto" cache="true" layoutX="372.0" layoutY="319.0" mnemonicParsing="false" onAction="#btButtonProduto" prefHeight="111.0" prefWidth="99.0" text="Produto" textAlignment="CENTER" />
       <Button fx:id="btnButtonFornecedor" cache="true" layoutX="522.0" layoutY="319.0" mnemonicParsing="false" onAction="#btButtonFornecedor" prefHeight="111.0" prefWidth="99.0" text="Fornecedor" textAlignment="CENTER" />
-      <Button fx:id="btnButtonRelatorio" cache="true" layoutX="90.0" layoutY="375.0" mnemonicParsing="false" onAction="#btButtonRelatoio" prefHeight="51.0" prefWidth="157.0" text="Relatoro de venda" textAlignment="CENTER" />
+      <Button fx:id="btnButtonVenda" cache="true" layoutX="90.0" layoutY="375.0" mnemonicParsing="false" onAction="#btButtonVenda" prefHeight="51.0" prefWidth="157.0" text="Relatoro de Venda" textAlignment="CENTER" />
       <Button cache="true" layoutX="692.0" layoutY="427.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="59.0" text="Sair       " textAlignment="CENTER" />
-      <Button fx:id="btnButtonRegistrarVenda" cache="true" layoutX="105.0" layoutY="119.0" mnemonicParsing="false" onAction="#btButtonRegistrarVenda" prefHeight="184.0" prefWidth="127.0" text="Registrar vanda" textAlignment="CENTER" />
+      <Button fx:id="btButtonRegistrarVenda" cache="true" layoutX="105.0" layoutY="119.0" mnemonicParsing="false" onAction="#btButtonRegistrarVenda" prefHeight="184.0" prefWidth="127.0" text="Registrar Venda" textAlignment="CENTER" />
       <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="731.0" layoutY="444.0">
          <image>
             <Image url="@../packagePNG/exit-2860.png" />

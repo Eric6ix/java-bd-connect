@@ -1,5 +1,7 @@
 package packageController;
 
+import java.io.IOException;
+
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +22,7 @@ public class ControllerMain {
     private Button btnButtonProduto;
 
     @FXML
-    private Button btnButtonRegistrarVenda;
+    private Button btButtonRegistrarVenda;
 
     @FXML
     private Button btnButtonRelatorio;
@@ -30,12 +32,12 @@ public class ControllerMain {
 
     
     @FXML
-    void btButtonRegistrarVenda(ActionEvent event) {
-
+    void btButtonRegistrarVenda(ActionEvent event) throws IOException {
+    	Main.changeScreen("Cvenda");
     }
 
     @FXML
-    void btButtonRelatoio(ActionEvent event) {
+    void btButtonVenda(ActionEvent event) {
     	Main.changeScreen("relatorio");
     }
     

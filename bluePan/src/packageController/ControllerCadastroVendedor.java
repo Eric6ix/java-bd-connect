@@ -115,6 +115,7 @@ public class ControllerCadastroVendedor implements Initializable{
 			Stage stage = (Stage) btnCancelar.getScene().getWindow();
 			stage.close();
 		}
+		
 
 	}
 }

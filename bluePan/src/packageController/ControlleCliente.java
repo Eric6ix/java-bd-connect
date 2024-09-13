@@ -2,7 +2,6 @@ package packageController;
 
 import java.io.IOException;
 import java.net.URL;
-
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -22,7 +21,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import packageControler.ClienteDAO;
 import packageModel.Cliente;
-import packageModel.Produto;
 
 public class ControlleCliente implements Initializable{
 
